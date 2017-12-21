@@ -1,3 +1,5 @@
+'use strict';
+
 const DEFAULT_TEMPERATURE = 20;
 const MAX_TEMP = 32
 const MAX_ECO_TEMP = 25
@@ -29,6 +31,10 @@ Thermostat.prototype.decreaseTemp = function() {
 
 Thermostat.prototype.turnEcoModeOff = function() {
   this.isEcoModeOn = false;
+};
+
+Thermostat.prototype.turnEcoModeOn = function() {
+  this.isEcoModeOn = true;
 };
 
 Thermostat.prototype.reset = function() {

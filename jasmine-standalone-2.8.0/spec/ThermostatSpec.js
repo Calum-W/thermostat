@@ -1,3 +1,5 @@
+'use strict';
+
 describe("Thermostat", function() {
 
   var thermostat;
@@ -11,6 +13,13 @@ describe("Thermostat", function() {
   });
 
   it("should initialize with ecomode on", function() {
+    expect(thermostat.isEcoModeOn).toBe(true);
+  });
+
+  it("ecomode can turn off and on", function() {
+    thermostat.turnEcoModeOff
+    expect(thermostat.isEcoModeOn).toBe(false);
+    thermostat.turnEcoModeOn
     expect(thermostat.isEcoModeOn).toBe(true);
   });
 
