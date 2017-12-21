@@ -16,10 +16,13 @@ describe("Thermostat", function() {
     expect(thermostat.isEcoModeOn).toBe(true);
   });
 
-  it("ecomode can turn off and on", function() {
-    thermostat.turnEcoModeOff
+  it("ecomode can turn off", function() {
+    thermostat.turnEcoModeOff()
     expect(thermostat.isEcoModeOn).toBe(false);
-    thermostat.turnEcoModeOn
+  });
+
+  it("ecomode can turn on", function() {
+    thermostat.turnEcoModeOn()
     expect(thermostat.isEcoModeOn).toBe(true);
   });
 
