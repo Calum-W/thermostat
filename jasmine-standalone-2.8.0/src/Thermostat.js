@@ -11,7 +11,7 @@ Thermostat.prototype.increaseTemp = function() {
   } else if (!this.isEcoModeOn && this.temperature >= 32) {
     this.temperature = 32
   } else {
-      this.temperature += 1;
+    this.temperature += 1;
   }
 };
 
@@ -25,4 +25,10 @@ Thermostat.prototype.decreaseTemp = function() {
 
 Thermostat.prototype.turnEcoModeOff = function() {
   this.isEcoModeOn = false;
+};
+
+Thermostat.prototype.checkUsage = function() {
+  if(this.temperature < 18) {
+    return "low-usage"
+  }
 };
