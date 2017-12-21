@@ -40,6 +40,9 @@ Thermostat.prototype.checkUsage = function() {
     case (this.temperature < MEDIUM_ENERGY_USAGE_LIMIT):
       return "low-usage"
       break;
+    case (this.temperature > MAX_ECO_TEMP):
+      return "high-usage"
+      break;
     case (this.temperature >= MEDIUM_ENERGY_USAGE_LIMIT):
       return "medium-usage";
       break;

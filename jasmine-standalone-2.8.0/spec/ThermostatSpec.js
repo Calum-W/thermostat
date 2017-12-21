@@ -66,5 +66,12 @@ describe("Thermostat", function() {
     it("should return 'medium-usage' when temperature is between 18 and 25 degrees", function(){
       expect(thermostat.checkUsage()).toEqual("medium-usage")
     });
+    it("should return 'high-usage' when temperature is above 25 degrees", function(){
+      thermostat.turnEcoModeOff();
+      for (var i = 0; i < 6; i++) {
+        thermostat.increaseTemp();
+      }
+      expect(thermostat.checkUsage()).toEqual("high-usage")
+    });
   });
 });
