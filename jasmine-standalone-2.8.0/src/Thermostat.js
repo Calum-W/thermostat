@@ -6,6 +6,10 @@ function Thermostat() {
 };
 
 Thermostat.prototype.increaseTemp = function() {
+  if (this.isEcoModeOn && this.temperature >= 25) {
+    this.temperature = 25
+    return
+  }
   this.temperature += 1;
 };
 

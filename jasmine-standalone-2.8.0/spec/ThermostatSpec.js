@@ -19,10 +19,12 @@ describe("Thermostat", function(){
       thermostat.increaseTemp();
       expect(thermostat.temperature).toEqual(DEFAULT_TEMPERATURE + 1);
     });
-    // it("should have a maximum temperature of 25 when in power saving mode", function() {
-    //   thermostat.ecoMode =;
-    //
-    // });
+    it("should have a maximum temperature of 25 when in power saving mode", function() {
+      for (var i = 0; i < 6; i++ ) {
+        thermostat.increaseTemp();
+      }
+      expect(thermostat.temperature).toEqual(25);
+    });
   });
 
   describe("decreaseTemp", function() {
