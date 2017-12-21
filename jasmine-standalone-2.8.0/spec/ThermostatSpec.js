@@ -25,6 +25,13 @@ describe("Thermostat", function(){
       }
       expect(thermostat.temperature).toEqual(25);
     });
+    it("should have a maximum temperature of 32 when it is not in power saving mode", function() {
+      thermostat.turnEcoModeOff();
+      for (var i = 0; i < 13; i++ ) {
+        thermostat.increaseTemp();
+      }
+      expect(thermostat.temperature).toEqual(32);
+    });
   });
 
   describe("decreaseTemp", function() {

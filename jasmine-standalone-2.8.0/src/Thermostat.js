@@ -8,9 +8,11 @@ function Thermostat() {
 Thermostat.prototype.increaseTemp = function() {
   if (this.isEcoModeOn && this.temperature >= 25) {
     this.temperature = 25
-    return
+  } else if (!this.isEcoModeOn && this.temperature >= 32) {
+    this.temperature = 32
+  } else {
+      this.temperature += 1;
   }
-  this.temperature += 1;
 };
 
 Thermostat.prototype.decreaseTemp = function() {
@@ -19,4 +21,8 @@ Thermostat.prototype.decreaseTemp = function() {
     return
   }
   this.temperature -= 1;
+};
+
+Thermostat.prototype.turnEcoModeOff = function() {
+  this.isEcoModeOn = false;
 };
