@@ -63,5 +63,8 @@ describe("Thermostat", function() {
       }
       expect(thermostat.checkUsage()).toEqual("low-usage")
     });
+    it("should return 'medium-usage' when temperature is between 18 and 25 degrees", function(){
+      expect(thermostat.checkUsage()).toEqual("medium-usage")
+    });
   });
 });

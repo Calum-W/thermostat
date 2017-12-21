@@ -1,4 +1,8 @@
 const DEFAULT_TEMPERATURE = 20;
+const MAX_TEMP = 32
+const MAX_ECO_TEMP = 25
+const MEDIUM_ENERGY_USAGE_LIMIT = 18;
+
 
 function Thermostat() {
   this.temperature = DEFAULT_TEMPERATURE
@@ -6,10 +10,10 @@ function Thermostat() {
 };
 
 Thermostat.prototype.increaseTemp = function() {
-  if (this.isEcoModeOn && this.temperature >= 25) {
-    this.temperature = 25
-  } else if (!this.isEcoModeOn && this.temperature >= 32) {
-    this.temperature = 32
+  if (this.isEcoModeOn && this.temperature >= MAX_ECO_TEMP) {
+    this.temperature = MAX_ECO_TEMP
+  } else if (!this.isEcoModeOn && this.temperature >= MAX_TEMP) {
+    this.temperature = MAX_TEMP
   } else {
     this.temperature += 1;
   }
@@ -32,7 +36,12 @@ Thermostat.prototype.reset = function() {
 };
 
 Thermostat.prototype.checkUsage = function() {
-  if(this.temperature < 18) {
-    return "low-usage"
-  };
+  switch(true) {
+    case (this.temperature < MEDIUM_ENERGY_USAGE_LIMIT):
+      return "low-usage"
+      break;
+    case (this.temperature >= MEDIUM_ENERGY_USAGE_LIMIT):
+      return "medium-usage";
+      break;
+  }
 };
