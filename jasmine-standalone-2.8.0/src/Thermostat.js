@@ -26,3 +26,7 @@ Thermostat.prototype.decreaseTemp = function() {
 Thermostat.prototype.turnEcoModeOff = function() {
   this.isEcoModeOn = false;
 };
+
+Thermostat.prototype.reset = function() {
+  this.temperature = DEFAULT_TEMPERATURE;
+};
