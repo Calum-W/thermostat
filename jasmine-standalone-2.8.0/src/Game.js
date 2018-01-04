@@ -35,6 +35,7 @@ Thermostat.prototype.turnEcoModeOff = function() {
 
 Thermostat.prototype.turnEcoModeOn = function() {
   this.isEcoModeOn = true;
+  if (this.temperature > MAX_ECO_TEMP) this.temperature = MAX_ECO_TEMP
 };
 
 Thermostat.prototype.reset = function() {
